@@ -59,6 +59,8 @@ module.exports = {
         appPlist.CFBundleVersion = buildVersion
       }
 
+      appPlist.NSAppTransportSecurity = { NSAllowsArbitraryLoads: true }
+
       if (opts.protocols) {
         helperPlist.CFBundleURLTypes = appPlist.CFBundleURLTypes = opts.protocols.map(function (protocol) {
           return {
